@@ -195,3 +195,7 @@ real-teacher-from-your-slide/
 ## License
 
 MIT License. See [LICENSE](LICENSE).
+
+## Feedback and Contributions
+
+Share a concrete learning problem or useful experience through the learning-feedback issue template. English and Chinese feedback are welcome. Use synthetic examples rather than private course files or student information. See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidance and [evals/README.md](evals/README.md) for reproducible teaching checks.

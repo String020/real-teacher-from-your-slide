@@ -1,0 +1,83 @@
+[
+  {
+    "id": "local-step-zh",
+    "prompt": "用中文解释这一步就行：为什么 2(x+3)=14 可以变成 x+3=7？",
+    "resources": [],
+    "checks": [
+      "Explains in Chinese that both sides are divided by 2.",
+      "Shows why the entire x+3 expression remains after cancellation.",
+      "Answers the local step without a mode menu, upload request, or full-chapter lesson."
+    ]
+  },
+  {
+    "id": "practice-explicit-answers",
+    "prompt": "Use these notes. Give me exactly two beginner linear-equation practice questions in English, with detailed solutions at the end.",
+    "resources": ["fixtures/algebra-notes.md"],
+    "checks": [
+      "Provides exactly two beginner linear-equation questions in English.",
+      "Places both questions before the detailed solutions and does not ask again about answer format.",
+      "Solutions apply reversible operations correctly and satisfy the original equations."
+    ]
+  },
+  {
+    "id": "scope-sample-conflict",
+    "prompt": "Using these files, tell me whether quadratics are in scope and whether the sample proves they will be a high-frequency topic.",
+    "resources": ["fixtures/scope-2026.txt", "fixtures/sample-2026.txt"],
+    "checks": [
+      "Reports quadratics as excluded by the supplied current scope and explicitly identifies the contradictory sample.",
+      "Identifies scope-2026.txt Coverage and sample-2026.txt Question 1 as the supporting locations.",
+      "Does not infer future frequency or weighting from one sample question."
+    ]
+  },
+  {
+    "id": "attempt-first-error",
+    "prompt": "Here is my attempt: 2(x+3)=14, then 2x+6=14, then 2x=20, then x=10. Find my first mistake and correct only what is needed.",
+    "resources": ["fixtures/algebra-notes.md"],
+    "checks": [
+      "Recognizes the expansion 2x+6=14 as correct.",
+      "Locates the first error at 2x=20 and explains that subtracting 6 gives 2x=8.",
+      "Obtains x=4 while keeping the response focused on the supplied attempt."
+    ]
+  },
+  {
+    "id": "recall-one-at-a-time",
+    "prompt": "Quiz me on inverse operations for linear equations in English, one question at a time. Wait for my attempt before showing the answer.",
+    "resources": ["fixtures/algebra-notes.md"],
+    "checks": [
+      "Asks exactly one relevant question and waits.",
+      "Does not reveal the answer, a worked solution, or a full quiz.",
+      "Uses the supplied scope without asking the user to select it again."
+    ]
+  },
+  {
+    "id": "partial-source-coverage",
+    "prompt": "Summarize both pages of this scan and tell me which methods page 2 teaches.",
+    "resources": ["fixtures/partial-scan.txt"],
+    "checks": [
+      "Summarizes only the readable first page with its actual locator.",
+      "States that page 2 is unreadable and does not invent its methods.",
+      "Requests readable page 2 to complete the missing part without blocking the useful page 1 summary."
+    ]
+  },
+  {
+    "id": "mock-marks-and-solutions",
+    "prompt": "Create a short original beginner linear-equation quiz in English: four questions, five marks each, twenty marks total, approximately fifteen minutes. Use the notes' methods. Put detailed solutions and the marking guide at the end. All scope and format choices are specified here.",
+    "resources": ["fixtures/algebra-notes.md"],
+    "checks": [
+      "Uses four questions with five marks each and twenty marks in total, with a time recommendation.",
+      "Questions have enough information and all solutions satisfy their original equations.",
+      "The marking guide totals five marks per question and twenty overall, consistent with the solutions.",
+      "Places questions first, then detailed solutions and marking guide, without claiming official exam weighting."
+    ]
+  },
+  {
+    "id": "unsupported-frequency",
+    "prompt": "Using only these notes, tell me the three most likely exam questions and their percentage weights. If that cannot be established, give me a practical study recommendation instead.",
+    "resources": ["fixtures/algebra-notes.md"],
+    "checks": [
+      "Explains that these teaching notes do not establish future exam questions or percentage weights.",
+      "Does not invent frequency statistics or describe generated practice as predicted exam content.",
+      "Provides a useful study recommendation grounded in reversible operations and substitution checks."
+    ]
+  }
+]

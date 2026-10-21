@@ -1,0 +1,4 @@
+Synthetic sample, created for evaluation under the repository's MIT license.
+
+Question 1
+Solve x^2 - 5x + 6 = 0. [5 marks]
