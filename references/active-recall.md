@@ -6,7 +6,7 @@ Use this mode for flashcards, oral quizzes, formula recall, method selection, de
 
 Use one-question-at-a-time recall by default:
 
-1. Confirm recall scope.
+1. Reuse the requested recall scope; ask only if it is unclear.
 2. Ask one question.
 3. Do not reveal the answer first.
 4. Wait for the user's answer.

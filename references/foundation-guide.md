@@ -4,7 +4,7 @@ Use this mode when the user wants a textbook-style learning handout for weak-fou
 
 ## Depth options
 
-Before generating a long guide, ask the user to choose depth:
+Reuse a depth already requested. Otherwise use standard textbook-style, and offer these alternatives when helpful:
 
 A. Standard textbook-style  
 B. More beginner-friendly  
@@ -47,7 +47,7 @@ Explain the wrong idea, why it is wrong, and how to avoid it.
 Include basic and consolidation questions unless the user asks otherwise.
 
 ## 11. Short answers
-Provide concise answers or key steps. Use detailed solutions only when requested.
+Include this section only when the user requested answers. Use their selected format, including detailed solutions at the end if requested. If answer format is unknown, ask before including answers; questions-only material should omit this section.
 
 ## 12. Module summary
 Compress the module into a short summary or table.

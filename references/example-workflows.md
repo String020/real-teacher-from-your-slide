@@ -2,6 +2,8 @@
 
 This file provides detailed examples of how to apply the Skill.
 
+In every example, reuse choices the user already provided. Questions listed below are only for missing information; they are not a mandatory questionnaire.
+
 ## 1. User uploads course resources and asks for a Knowledge Outline
 
 User input: "I uploaded the slides and notes for these modules. Generate a Knowledge Outline."
@@ -10,7 +12,7 @@ Assistant should:
 
 1. Identify uploaded resources briefly.
 2. Confirm whether the user wants chat, Markdown, or formal artifact if output is long.
-3. Ask language style if not already selected.
+3. Follow an existing language preference or the user's input language.
 4. Generate a Knowledge Outline using `knowledge-outline.md`.
 5. Include a separate source basis if the output is formal.
 

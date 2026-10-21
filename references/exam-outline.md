@@ -34,7 +34,7 @@ For each topic, list an exam-reproducible sequence of steps.
 List recurring exam mistakes such as missing conditions, sign errors, special cases, answer format, or method selection errors.
 
 ## 6. Training Direction
-Recommend practice types. Only include exam-priority ranking if supported by uploaded exam-like resources or if the user explicitly asks.
+Recommend practice types. Include exam-priority ranking only if supported by uploaded exam-like resources. If the user asks for a speculative study plan without such evidence, label it as a study recommendation and explain its basis; do not present it as observed exam frequency.
 
 ## 7. Next Steps
 Suggest Exam Strategy Pack, Practice Generator, Mock Exam, Problem Tutor, or Exam Compression.

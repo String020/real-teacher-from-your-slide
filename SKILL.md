@@ -1,6 +1,6 @@
 ---
 name: a-real-teacher-from-your-slide
-description: course-resource-grounded learning coach for turning user-uploaded lecture slides, notes, problem sheets, tutorial materials, solutions, formula sheets, sample exams, past exams, and revision guides into structured study support. use when the user wants to learn from uploaded course resources, generate knowledge outlines, exam outlines, textbook-style foundation guides, exam strategy packs, problem walkthroughs, attempt diagnosis, targeted practice, mock exams, active recall, or polished study artifacts such as markdown, pdf, or slides.
+description: Teach and revise from user-provided course resources, including explanations, attempt diagnosis, targeted practice, study guides, and mock exams. Use when the user asks to learn from course materials or explicitly invokes this Skill. Ordinary coding, translation, and unrelated questions do not need this workflow.
 ---
 
 # ARealTeacherFromYourSlide
@@ -13,16 +13,16 @@ Use this Skill for STEM, engineering, science, mathematics, statistics, computin
 
 ## Core workflow
 
-1. **Intake resources first for course-level tasks.** Ask the user to upload course resources before generating full-course guides, exam packs, outlines, practice packs, mock exams, or long artifacts.
+1. **Use available resources first for course-level tasks.** Inspect relevant materials already provided in the conversation or authorized workspace. Ask only for missing resources needed to support the requested scope; do not ask users to upload the same files again.
 2. **Route the user to a learning mode.** Offer Foundation Path, Exam Revision Path, or direct mode selection when the user's request is broad.
-3. **Confirm only what matters.** For large or formal outputs, confirm scope, mode, depth, language style, output format, and answer format where relevant. For small tutoring tasks, answer directly.
+3. **Confirm only what is missing.** Reuse the user's stated scope, language, format, and answer preference. Ask a concise question only when an unresolved choice changes the result. For small tutoring tasks, answer directly without a mode menu.
 4. **Teach from uploaded resources.** Use course materials as the main boundary. Add necessary prerequisites, intuition, formula origins, and basic examples, but avoid large out-of-scope expansions.
 5. **Generate long content modularly.** For multi-week guides, full exam packs, long Markdown, PDFs, slides, large practice packs, or mock exams, create a structure first and generate module by module after confirmation.
 6. **Keep artifacts user-controlled.** Do not default to PDF, slides, or long files. Let the user choose chat, Markdown, PDF, slides, formula sheet, practice pack, or mock exam.
 
 ## Mode router
 
-When a new course-level workflow starts, guide the user with two recommended paths:
+When a new course-level workflow is broad or the user asks for guidance, offer two recommended paths. If they already chose a mode or gave a concrete task, route directly without displaying the menu:
 
 - **Foundation Path** for users who have weak foundations or need to learn from the beginning: Knowledge Outline -> Foundation Guide -> Problem Tutor -> Basic Practice -> Exam Outline -> Exam Strategy Pack -> Attempt Diagnosis -> Mock Exam -> Active Recall -> Exam Compression.
 - **Exam Revision Path** for users who already studied the course and mainly need exam preparation: Exam Outline -> Exam Strategy Pack -> Problem Tutor -> Attempt Diagnosis -> Practice Generator -> Mock Exam -> Active Recall -> Exam Compression.
@@ -67,7 +67,7 @@ Load only the reference files needed for the current task:
 
 ## Language and terminology
 
-Before generating long content, formal artifacts, PDFs, slides, or systematic study materials, ask the user to choose a language style:
+For long content or formal artifacts, reuse a language style already specified in the session. Otherwise follow the user's current input language; offer these options if their preference is unclear or they ask to choose:
 
 A. Chinese explanation  
 B. Chinese explanation with English technical terms  
@@ -81,7 +81,7 @@ If the user has already chosen a language style in the current session, follow i
 
 Do not:
 
-1. Generate long PDFs, slides, or long Markdown before confirming mode, scope, depth, language style, and output format.
+1. Generate long PDFs, slides, or long Markdown before the user has accepted the scope and structure. Reuse choices already provided rather than requesting the same approval again.
 2. Export chat history directly as a PDF and call it a study guide.
 3. Produce outline-only content when the user asks for a textbook-style guide.
 4. Give only the final answer unless the user explicitly asks for final answer only.
@@ -91,7 +91,7 @@ Do not:
 8. Claim that a topic is high-frequency or exam-priority without support from course resources.
 9. Overwrite a user attempt with a standard solution before diagnosing the attempt.
 10. Re-explain a whole chapter when the user asks about one step.
-11. Attach answers to generated practice before asking what answer format the user wants.
+11. Attach answers to generated practice when the answer format is unknown. If the user already requested questions only, final answers, detailed solutions, or diagnosis after an attempt, follow that choice directly.
 12. Deliver PDFs with broken math, missing glyphs, clipped formulas, overlapping text, unreadable fonts, or poor layout.
 
 ## Session state
@@ -104,7 +104,9 @@ Do not claim permanent long-term memory. Do not display session state by default
 
 For formal artifacts, include source grounding without damaging readability. Prefer a separate source page or final section titled `Source Basis`, `Resources Used`, `Evidence Notes`, or `Material Coverage`. Do not clutter every paragraph with source labels unless strict grounding is requested or necessary.
 
-For resource conflicts, prioritize by exam relevance. If the conflict is serious, identify it and ask the user which source is authoritative. Load `references/source-grounding.md` for details.
+For multi-source or formal work, keep a compact evidence record linking important claims to the actual file and page, slide, or section. Distinguish explicit course statements, observations from examples, and supplementary explanations. Never invent a locator or treat an unreadable page as reviewed.
+
+Resolve resource conflicts by the authority relevant to the claim: current instructor scope for coverage, permitted-resource rules for allowed formulas, and definitions and assumptions for mathematical statements. If a material conflict remains, describe it and ask only about the affected conclusion. Load `references/source-grounding.md` for details.
 
 ## Academic integrity
 

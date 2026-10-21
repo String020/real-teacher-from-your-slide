@@ -4,7 +4,7 @@ Use this mode when the user wants practice questions, variations, module drills,
 
 ## Confirm before generating
 
-Ask the minimum necessary questions:
+Reuse choices already supplied in the request or current session. Ask only about missing choices that materially affect the exercise set:
 
 1. Topic / module.
 2. Number of questions.
@@ -20,7 +20,7 @@ B. Questions + final answers.
 C. Questions + detailed solutions.  
 D. Questions first, then diagnose after the user attempts them.
 
-Do not attach answers before asking what answer format the user wants.
+If answer format is unspecified, ask before including answers. If the user already requested a format, proceed without asking again. Place detailed solutions at the end when requested so questions remain usable for an attempt.
 
 ## Practice types
 
