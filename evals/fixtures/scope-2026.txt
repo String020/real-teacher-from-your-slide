@@ -1,0 +1,6 @@
+Synthetic assessment scope, created for evaluation under the repository's MIT license.
+
+Coverage
+The exam includes linear equations. Quadratics are excluded.
+
+No topic frequencies or weighting are specified.

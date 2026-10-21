@@ -226,3 +226,7 @@ real-teacher-from-your-slide/
 ## 许可证
 
 MIT License。见 [LICENSE](LICENSE)。
+
+## 反馈与贡献
+
+欢迎使用 learning-feedback issue 模板，描述具体的学习问题或有帮助的使用经历，中英文均可。请使用自制示例，不要公开私人课程资料或学生信息。贡献方式见 [CONTRIBUTING.md](CONTRIBUTING.md)，可复现的教学检查方法见 [evals/README.md](evals/README.md)。
