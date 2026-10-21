@@ -28,13 +28,44 @@ The GitHub repository name is `real-teacher-from-your-slide`. The Skill package/
 
 This repository is platform-agnostic. Use it in any environment that can read a Skill-style instruction bundle or a structured prompt workflow.
 
-General usage:
+### Build the Skill bundle
 
-1. Download or clone the repository.
-2. Use `SKILL.md` as the main entrypoint and keep the `references/` folder available.
-3. If you are using a Skill-enabled environment, upload or install the packaged Skill archive.
-4. Start a study workflow by uploading course resources.
-5. Choose a learning path or mode before requesting long artifacts.
+With Git and Python 3.10 or newer installed, run these commands in a terminal (PowerShell or Bash):
+
+```sh
+git clone https://github.com/String020/real-teacher-from-your-slide.git
+cd real-teacher-from-your-slide
+python -m pip install -r requirements-dev.txt
+python scripts/validate_skill.py
+python scripts/package_skill.py
+```
+
+This creates `dist/a-real-teacher-from-your-slide.zip`. The archive has one top-level folder named `a-real-teacher-from-your-slide`, containing `SKILL.md`, the reference files, UI metadata, and the MIT license. Repository history, development tools, and files outside these runtime locations are excluded. Keep private course materials outside the repository's `references/` directory.
+
+### Local Codex setup
+
+Extract the ZIP's `a-real-teacher-from-your-slide` folder into your chosen local Skill directory. The final path must look like `.agents/skills/a-real-teacher-from-your-slide/SKILL.md`, not an extra nested copy of that folder. For a user-level install, the parent is `~/.agents/skills` (on Windows, `%USERPROFILE%\.agents\skills`). A project-level install uses that project's `.agents/skills` directory.
+
+These paths follow the [official local Skill documentation](https://learn.chatgpt.com/docs/build-skills). If a host or organization configures a different Skill location, use that location. Codex should detect the Skill; restart if it does not appear.
+
+Start with:
+
+```text
+Use $a-real-teacher-from-your-slide to explain the attached course notes.
+Start with one worked example, then ask me one check question.
+```
+
+To update, build the new bundle and replace the installed Skill folder after preserving any personal modifications. To uninstall, remove only that Skill folder. Other Skill-enabled hosts can read the same instruction bundle, but their installation steps and file-generation tools differ. This ZIP is a local Skill bundle, not a marketplace plugin.
+
+### Check a change
+
+```sh
+python scripts/validate_skill.py
+python -m unittest discover -s tests -v
+python scripts/package_skill.py
+```
+
+The validator checks the manifest, runtime files, UI metadata structure, and reference targets. The tests also exercise extraction, excluded local files, broken inputs, and reproducible packaging. They do not measure teaching quality or prove host compatibility. GitHub Actions runs these checks on Windows and Linux and provides the ZIP as a workflow artifact; it does not publish a release automatically.
 
 If your environment cannot generate PDFs, slides, or other files directly, ask the assistant to produce clean Markdown or a generation-ready outline instead.
 

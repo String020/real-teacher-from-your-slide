@@ -28,13 +28,44 @@ GitHub 仓库名是 `real-teacher-from-your-slide`。Skill package / frontmatter
 
 这个仓库采用平台无关设计。你可以在任何能够读取 Skill-style instruction bundle 或结构化 prompt workflow 的环境中使用它。
 
-通用使用方式：
+### 生成 Skill 安装包
 
-1. 下载或克隆这个仓库。
-2. 使用 `SKILL.md` 作为主入口，并保留 `references/` 文件夹。
-3. 如果你的环境支持 Skill 上传或安装，可以使用打包好的 Skill archive。
-4. 开始学习任务时，先上传课程资料。
-5. 在生成长资料前，先选择学习路径或具体模式。
+安装 Git 和 Python 3.10 或更新版本后，在终端运行以下命令（PowerShell 或 Bash 均可）：
+
+```sh
+git clone https://github.com/String020/real-teacher-from-your-slide.git
+cd real-teacher-from-your-slide
+python -m pip install -r requirements-dev.txt
+python scripts/validate_skill.py
+python scripts/package_skill.py
+```
+
+生成的文件是 `dist/a-real-teacher-from-your-slide.zip`。ZIP 内只有一个名为 `a-real-teacher-from-your-slide` 的顶层文件夹，包含 `SKILL.md`、参考文件、界面元数据和 MIT 许可证。Git 历史、开发工具和这些运行文件目录之外的文件不会打包。请勿把私人课程资料放入仓库的 `references/` 目录。
+
+### 在本地 Codex 中使用
+
+将 ZIP 内的 `a-real-teacher-from-your-slide` 文件夹解压到你选择的本地 Skill 目录。最终路径应为 `.agents/skills/a-real-teacher-from-your-slide/SKILL.md`，不要多嵌套一层同名文件夹。用户级安装的父目录是 `~/.agents/skills`（Windows 下为 `%USERPROFILE%\.agents\skills`）；项目级安装使用该项目的 `.agents/skills` 目录。
+
+这些路径依据 [官方本地 Skill 文档](https://learn.chatgpt.com/docs/build-skills)。如果你的环境或组织另行配置了 Skill 目录，请使用该目录。Codex 应能发现这个 Skill；如果没有显示，可以重启后再试。
+
+安装后可以这样开始：
+
+```text
+使用 $a-real-teacher-from-your-slide 讲解附件中的课程笔记。
+先用中文讲一个具体例子，保留 English technical terms，再问我一道检查题。
+```
+
+更新时，重新生成安装包，保留个人修改后再替换已安装的 Skill 文件夹。卸载时，只删除这个 Skill 文件夹。其他支持 Skill 的环境也可以读取这套指令，但安装方式和文件生成能力可能不同。这个 ZIP 是本地 Skill 包，不是插件市场的 plugin。
+
+### 检查修改
+
+```sh
+python scripts/validate_skill.py
+python -m unittest discover -s tests -v
+python scripts/package_skill.py
+```
+
+验证器检查 manifest、运行文件、界面元数据结构和参考文件路径。测试还检查解压后的可用性、本地文件排除、错误输入和可重复打包。它们不衡量教学质量，也不证明所有宿主环境兼容。GitHub Actions 会在 Windows 和 Linux 上运行这些检查，并提供 ZIP 工作流产物；不会自动发布 release。
 
 如果当前环境不能直接生成 PDF、PPT 或其他文件，可以让 AI 先输出干净的 Markdown 或可用于生成文件的目录草案。
 
