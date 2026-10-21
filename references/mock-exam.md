@@ -4,7 +4,7 @@ Use this mode when the user asks for a mock exam, timed test, module test, half 
 
 ## Confirm before generating
 
-Ask:
+Reuse choices already provided. Ask only about missing details:
 
 1. Scope: full course, selected modules, or weak topics.
 2. Format: full mock, half mock, timed quiz, or module test.
@@ -18,7 +18,7 @@ A. Imitate past exam / sample exam style.
 B. Generate freely by specified modules.  
 C. Mixed mode: exam-like structure with user-specified weak topics.
 
-Always ask which style the user wants.
+Ask which style the user wants only if it is not already clear from their request.
 
 ## Output structure
 
@@ -34,3 +34,5 @@ For a mock exam, include:
 ## Evidence rule
 
 Do not claim that a mock exam reflects true exam weighting unless sample exams, past exams, marking guides, or instructor scope support that claim.
+
+Before delivery, solve each generated question, check that the supplied information is sufficient, and verify the marking guide agrees with the solution. Add question and section marks and confirm they match the requested total. Keep answers separate or withheld according to the user's selected format. Report any unverified checks instead of claiming a complete review.

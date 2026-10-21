@@ -4,7 +4,9 @@ Use this file when the user's request is broad, course-level, or ambiguous.
 
 ## First response pattern
 
-For a new course-level workflow, ask the user to upload course resources first if none are available. After materials are available, recommend a path or direct mode selection.
+First check whether the user already specified a mode or a concrete task. Route directly in that case. A single problem, a local step, or a supplied attempt does not need the full menu or a language questionnaire.
+
+For broad course-level requests, use materials already available in the conversation or authorized workspace. Ask for relevant resources only if they are missing. Then recommend a path or direct mode selection.
 
 Offer two paths:
 
