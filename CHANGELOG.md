@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v0.3.1
 
 - Added content consistency tests that need no model: learning paths use only defined modes and agree across files, references are registered in `SKILL.md` and both README trees, progress statuses use the four defined values, the `AGENTS.md` template has no Skill-internal paths, relative links and anchors resolve, both READMEs share one structure, fixtures are synthetic and used, and the changelog is ordered.
 - Moved release notes extraction into `scripts/release_notes.py` with unit tests, and both CI and the release workflow now run `eval_case.py --check`.
