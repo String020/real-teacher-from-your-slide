@@ -22,7 +22,9 @@ Do not assume the course is organized by weeks. Keep each file's own structure, 
 
 ## 2. Convert with a local tool
 
-If the host can run local commands and a converter such as MarkItDown is installed, convert files with it instead of retyping their content. Tool output costs no model output tokens. Do not install software without the user's permission.
+If the host can run local commands and a converter such as MarkItDown is installed, convert files with it instead of retyping their content. Tool output costs no model output tokens. Check with `markitdown --version`, or use a location the user gave.
+
+If no converter is found, suggest MarkItDown once in a short note: what it saves, and the install command `pipx install 'markitdown[all]'` (Python 3.10 or newer; `uv tool install 'markitdown[all]'` or `pip install 'markitdown[all]'` in a virtual environment also work). Do not install software without the user's permission. If they decline or cannot install it, continue by reading the files directly and do not suggest it again in that session.
 
 ```sh
 markitdown lecture-03.pdf -o materials/lecture-03.md

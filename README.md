@@ -61,6 +61,28 @@ Start with one worked example, then ask me one check question.
 
 To update, download or build the new bundle and replace the installed Skill folder after preserving any personal modifications. To uninstall, remove only that Skill folder. Other Skill-enabled hosts can read the same instruction bundle, but their installation steps and file-generation tools differ. This ZIP is a local Skill bundle, not a marketplace plugin.
 
+### Recommended: install MarkItDown
+
+For courses with many or long files, install [MarkItDown](https://github.com/microsoft/markitdown) so the Skill can convert PDF, PowerPoint, Word, and Excel files to Markdown locally instead of having the model read or retype them. This saves tokens, and later sessions can reuse the converted text. It is optional: without it, the Skill reads files directly. It only helps in hosts that can run local commands, such as Codex or Claude Code.
+
+MarkItDown needs Python 3.10 or newer. Install it as an isolated command-line tool with one of these:
+
+```sh
+pipx install 'markitdown[all]'
+```
+
+```sh
+uv tool install 'markitdown[all]'
+```
+
+Or, inside a virtual environment, run `pip install 'markitdown[all]'`. Check that the command works:
+
+```sh
+markitdown --version
+```
+
+If `markitdown` is not on your `PATH`, tell the assistant where it is installed. The Skill never installs it without your permission; when it is missing for a large set of files, it suggests installing it once and continues without it if you decline.
+
 ### Check a change
 
 ```sh
@@ -145,7 +167,7 @@ The Skill creates these files only when you ask or agree, does not overwrite exi
 
 When a course has many or long files, the Skill first surveys them (filenames, page counts, tables of contents, first pages) and keeps each file's own structure, whether it is organized by week, lecture, chapter, topic, or not at all. It then:
 
-- converts files to Markdown with a local tool such as [MarkItDown](https://github.com/microsoft/markitdown) when one is installed, saving them in `materials/` with an index, so later sessions read text instead of re-parsing PDFs;
+- converts files to Markdown with a local tool such as MarkItDown when one is installed ([setup](#recommended-install-markitdown)), saving them in `materials/` with an index, so later sessions read text instead of re-parsing PDFs;
 - splits the reading across subagents when the host supports them, using a cheaper model for reading if the host allows, and merges their knowledge points into the teaching outline;
 - transcribes only what the tool cannot handle, such as scanned pages, garbled formulas, and important diagrams, when that module is taught.
 

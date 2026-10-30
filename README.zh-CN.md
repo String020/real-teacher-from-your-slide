@@ -61,6 +61,28 @@ python scripts/package_skill.py
 
 更新时，重新下载或生成安装包，保留个人修改后再替换已安装的 Skill 文件夹。卸载时，只删除这个 Skill 文件夹。其他支持 Skill 的环境也可以读取这套指令，但安装方式和文件生成能力可能不同。这个 ZIP 是本地 Skill 包，不是插件市场的 plugin。
 
+### 推荐：安装 MarkItDown
+
+如果课程文件很多或很长，建议安装 [MarkItDown](https://github.com/microsoft/markitdown)。装好后，Skill 可以在本地把 PDF、PPT、Word、Excel 转成 Markdown，不需要模型逐页阅读或重写，既省 token，以后的对话也能直接复用转好的文字。它是可选的：没装的话，Skill 会直接读取原文件。它只在能运行本地命令的环境里有用，比如 Codex 或 Claude Code。
+
+MarkItDown 需要 Python 3.10 或更新版本。用下面任意一种方式装成独立的命令行工具：
+
+```sh
+pipx install 'markitdown[all]'
+```
+
+```sh
+uv tool install 'markitdown[all]'
+```
+
+也可以在虚拟环境里运行 `pip install 'markitdown[all]'`。装好后检查命令能否使用：
+
+```sh
+markitdown --version
+```
+
+如果 `markitdown` 不在 `PATH` 里，告诉 AI 它装在哪里就行。Skill 不会未经允许替你安装；资料很多但没装时，它会提醒一次，你不想装的话就继续直接读文件。
+
 ### 检查修改
 
 ```sh
@@ -145,7 +167,7 @@ PDF 应该像正式教材或讲义，而不是聊天记录导出。数学公式�
 
 一门课的文件很多或很长时，这个 Skill 会先快速摸底（文件名、页数、目录、前一两页），并保留每个文件自己的组织方式，不管它是按周、按 lecture、按章节、按主题，还是没有结构。然后：
 
-- 如果装了 [MarkItDown](https://github.com/microsoft/markitdown) 这类本地工具，就用它把文件转成 Markdown，存进 `materials/` 并建索引。以后的对话直接读文字，不用每次重新解析 PDF；
+- 如果装了 MarkItDown 这类本地工具（[安装方法](#推荐安装-markitdown)），就用它把文件转成 Markdown，存进 `materials/` 并建索引。以后的对话直接读文字，不用每次重新解析 PDF；
 - 当前环境支持子 agent 时，把阅读任务分给多个子 agent（环境允许时用便宜一些的模型），再把它们提取的知识点合并成教学大纲；
 - 只有工具处理不了的内容，比如扫描页、乱码公式和重要的图表，才在讲到对应模块时由模型转写。
 
