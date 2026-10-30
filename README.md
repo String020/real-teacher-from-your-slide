@@ -126,7 +126,23 @@ For long PDFs, slide decks, or long Markdown documents, it should first generate
 
 PDF outputs should be book-quality study documents, not exported chat logs. They should use LaTeX math environments, readable fonts, clear sectioning, page numbers, tables of contents for long documents, and layout checks for broken formulas, missing glyphs, overlapping text, and clipped equations.
 
+## Study Workspace
+
+When the host can write files, the Skill can keep your learning in your own course folder so a later conversation, or a different agent, can continue where you stopped:
+
+- `teaching-outline.md`: knowledge points with stable IDs, learning goals, prerequisites, and source locators.
+- `progress.md`: status of each knowledge point, evidence, weak points, a dated session log, and the next step.
+- `AGENTS.md`: instructions that tell agents to read both files at the start of a session and how to update them.
+- `CLAUDE.md`: one line, `@AGENTS.md`, for hosts that read `CLAUDE.md`.
+
+The Skill creates these files only when you ask or agree, does not overwrite existing files, and changes a knowledge point's status only after your attempts, answers, or results. You can edit the files yourself at any time.
+
 ## Example Prompts
+
+### Study Workspace
+
+- "Create a teaching outline and progress file for this course in this folder, plus AGENTS.md."
+- "Continue from my progress file."
 
 ### Resource Upload
 

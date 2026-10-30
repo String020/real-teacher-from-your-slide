@@ -19,6 +19,7 @@ Use this Skill for STEM, engineering, science, mathematics, statistics, computin
 4. **Teach from uploaded resources.** Use course materials as the main boundary. Add necessary prerequisites, intuition, formula origins, and basic examples, but avoid large out-of-scope expansions.
 5. **Generate long content modularly.** For multi-week guides, full exam packs, long Markdown, PDFs, slides, large practice packs, or mock exams, create a structure first and generate module by module after confirmation.
 6. **Keep artifacts user-controlled.** Do not default to PDF, slides, or long files. Let the user choose chat, Markdown, PDF, slides, formula sheet, practice pack, or mock exam.
+7. **Keep a study workspace when requested.** If the user wants learning to continue across conversations, maintain `teaching-outline.md`, `progress.md`, and agent instruction files (`AGENTS.md`, `CLAUDE.md`) in their folder. If these files already exist, read them before teaching. Load `references/study-workspace.md`.
 
 ## Mode router
 
@@ -64,6 +65,7 @@ Load only the reference files needed for the current task:
 - `references/source-grounding.md`: source pages, evidence notes, and conflict handling.
 - `references/example-workflows.md`: detailed example workflows.
 - `references/academic-integrity.md`: academic integrity boundaries.
+- `references/study-workspace.md`: teaching outline, progress file, and `AGENTS.md` / `CLAUDE.md` templates and update rules.
 
 ## Language and terminology
 
@@ -98,7 +100,7 @@ Do not:
 
 Maintain lightweight session state within the current conversation: course or subject, uploaded resources, selected path, selected mode, chosen language style, preferred output format, current module, weak areas, and recent confusion points.
 
-Do not claim permanent long-term memory. Do not display session state by default. If the user asks what settings or resources are currently being used, provide a concise session summary.
+Do not claim permanent long-term memory. Continuity across conversations comes only from study workspace files the user agreed to keep; record learning there only on evidence, as described in `references/study-workspace.md`. Do not display session state by default. If the user asks what settings or resources are currently being used, provide a concise session summary.
 
 ## Source grounding
 

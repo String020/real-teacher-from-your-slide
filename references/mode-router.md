@@ -4,6 +4,8 @@ Use this file when the user's request is broad, course-level, or ambiguous.
 
 ## First response pattern
 
+If the folder contains `teaching-outline.md` and `progress.md`, read them first, summarize the learner's position briefly, and offer the recorded next step instead of the full menu. See `references/study-workspace.md`.
+
 First check whether the user already specified a mode or a concrete task. Route directly in that case. A single problem, a local step, or a supplied attempt does not need the full menu or a language questionnaire.
 
 For broad course-level requests, use materials already available in the conversation or authorized workspace. Ask for relevant resources only if they are missing. Then recommend a path or direct mode selection.
@@ -64,3 +66,4 @@ Exam Outline -> Exam Strategy Pack -> Problem Tutor -> Attempt Diagnosis -> Prac
 - Request for drilling or questions -> Practice Generator or Active Recall.
 - Last-minute revision -> Exam Compression.
 - Request for PDF, slides, or long Markdown -> Artifact output rules in `artifact-quality.md`.
+- Request to save the outline, track progress, continue across sessions, or create `AGENTS.md` / `CLAUDE.md` -> Study workspace rules in `study-workspace.md`.
