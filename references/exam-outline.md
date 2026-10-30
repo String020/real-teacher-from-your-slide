@@ -42,3 +42,7 @@ Suggest Exam Strategy Pack, Practice Generator, Mock Exam, Problem Tutor, or Exa
 ## Evidence rule
 
 Do not claim high-frequency or exam-priority status without evidence from sample exams, past exams, problem sheets, revision scopes, or instructor-provided materials.
+
+## Study workspace
+
+If `teaching-outline.md` exists and exam-like evidence supports the Exam Outline, offer to add or fill its `Exam relevance` column for the affected IDs, citing the evidence (for example `sample-2026.txt Question 1`). Leave unsupported points blank rather than marking them low. Without exam-like evidence, do not add the column.

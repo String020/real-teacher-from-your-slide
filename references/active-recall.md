@@ -26,3 +26,9 @@ Only generate a full quiz if the user explicitly asks.
 - oral exam style.
 
 If the user repeatedly misses the same category, suggest revisiting the relevant Foundation Guide or Problem Tutor mode.
+
+## Study workspace
+
+If `progress.md` exists and the user does not name a scope, choose questions in this order: points marked `needs review`, then `learning` points with the oldest `Last practiced` date, then `mastered` points not practised recently. Do not quiz `not started` points unless the user asks.
+
+When the round ends or the user stops, update evidence, `Last practiced`, and statuses from the marked answers by the progress rules in `references/study-workspace.md`, and tell the user in one line what changed. A partially correct answer is not evidence for `mastered`.
