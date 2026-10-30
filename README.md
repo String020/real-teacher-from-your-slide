@@ -28,9 +28,13 @@ The GitHub repository name is `real-teacher-from-your-slide`. The Skill package/
 
 This repository is platform-agnostic. Use it in any environment that can read a Skill-style instruction bundle or a structured prompt workflow.
 
+### Download the Skill bundle
+
+From v0.2.0, each release attaches a validated `a-real-teacher-from-your-slide.zip` to the [latest GitHub Release](https://github.com/String020/real-teacher-from-your-slide/releases/latest). It contains the same files as a local build, so you can skip to the setup below.
+
 ### Build the Skill bundle
 
-With Git and Python 3.10 or newer installed, run these commands in a terminal (PowerShell or Bash):
+To build the ZIP yourself, with Git and Python 3.10 or newer installed, run these commands in a terminal (PowerShell or Bash):
 
 ```sh
 git clone https://github.com/String020/real-teacher-from-your-slide.git
@@ -55,7 +59,7 @@ Use $a-real-teacher-from-your-slide to explain the attached course notes.
 Start with one worked example, then ask me one check question.
 ```
 
-To update, build the new bundle and replace the installed Skill folder after preserving any personal modifications. To uninstall, remove only that Skill folder. Other Skill-enabled hosts can read the same instruction bundle, but their installation steps and file-generation tools differ. This ZIP is a local Skill bundle, not a marketplace plugin.
+To update, download or build the new bundle and replace the installed Skill folder after preserving any personal modifications. To uninstall, remove only that Skill folder. Other Skill-enabled hosts can read the same instruction bundle, but their installation steps and file-generation tools differ. This ZIP is a local Skill bundle, not a marketplace plugin.
 
 ### Check a change
 
@@ -65,7 +69,7 @@ python -m unittest discover -s tests -v
 python scripts/package_skill.py
 ```
 
-The validator checks the manifest, runtime files, UI metadata structure, and reference targets. The tests also exercise extraction, excluded local files, broken inputs, and reproducible packaging. They do not measure teaching quality or prove host compatibility. GitHub Actions runs these checks on Windows and Linux and provides the ZIP as a workflow artifact; it does not publish a release automatically.
+The validator checks the manifest, runtime files, UI metadata structure, and reference targets. The tests also exercise extraction, excluded local files, broken inputs, and reproducible packaging. They do not measure teaching quality or prove host compatibility. GitHub Actions runs these checks on Windows and Linux and provides the ZIP as a workflow artifact. Releases are published only when a maintainer pushes a version tag; see [Releasing](#releasing).
 
 If your environment cannot generate PDFs, slides, or other files directly, ask the assistant to produce clean Markdown or a generation-ready outline instead.
 
@@ -93,7 +97,7 @@ For users with weak foundations or who need to learn from the beginning.
 
 Recommended flow:
 
-`Knowledge Outline -> Foundation Guide -> Problem Tutor -> Basic Practice -> Exam Outline -> Exam Strategy Pack -> Attempt Diagnosis -> Mock Exam -> Active Recall -> Exam Compression`
+`Knowledge Outline -> Foundation Guide -> Problem Tutor -> Practice Generator (foundation drills) -> Exam Outline -> Exam Strategy Pack -> Attempt Diagnosis -> Mock Exam -> Active Recall -> Exam Compression`
 
 ### Exam Revision Path
 
@@ -214,30 +218,60 @@ real-teacher-from-your-slide/
 ├── README.zh-CN.md
 ├── LICENSE
 ├── CHANGELOG.md
+├── CONTRIBUTING.md
 ├── .gitignore
 ├── SKILL.md
+├── requirements-dev.txt
+├── .github/
+│   ├── ISSUE_TEMPLATE/learning-feedback.md
+│   └── workflows/
+│       ├── validate.yml
+│       └── release.yml
 ├── agents/
 │   └── openai.yaml
-└── references/
-    ├── mode-router.md
-    ├── material-intake.md
-    ├── knowledge-outline.md
-    ├── exam-outline.md
-    ├── foundation-guide.md
-    ├── exam-strategy-pack.md
-    ├── problem-tutor.md
-    ├── attempt-diagnosis.md
-    ├── practice-generator.md
-    ├── mock-exam.md
-    ├── active-recall.md
-    ├── exam-compression.md
-    ├── artifact-quality.md
-    ├── source-grounding.md
-    ├── example-workflows.md
-    └── academic-integrity.md
+├── references/
+│   ├── mode-router.md
+│   ├── material-intake.md
+│   ├── knowledge-outline.md
+│   ├── exam-outline.md
+│   ├── foundation-guide.md
+│   ├── exam-strategy-pack.md
+│   ├── problem-tutor.md
+│   ├── attempt-diagnosis.md
+│   ├── practice-generator.md
+│   ├── mock-exam.md
+│   ├── active-recall.md
+│   ├── exam-compression.md
+│   ├── artifact-quality.md
+│   ├── source-grounding.md
+│   ├── study-workspace.md
+│   ├── example-workflows.md
+│   └── academic-integrity.md
+├── evals/
+│   ├── README.md
+│   ├── cases.json
+│   └── fixtures/
+├── scripts/
+│   ├── validate_skill.py
+│   ├── package_skill.py
+│   └── eval_case.py
+└── tests/
+    └── test_package_skill.py
 ```
 
 `SKILL.md` is the main entrypoint. Detailed behavior rules live in `references/` so each mode can be updated independently.
+
+### Releasing
+
+1. Move the release's entries in `CHANGELOG.md` under a `## vX.Y.Z` heading and merge that change into `main`.
+2. Tag the merged commit and push the tag:
+
+   ```sh
+   git tag v0.2.0
+   git push origin v0.2.0
+   ```
+
+3. The release workflow validates and tests the bundle, then publishes a GitHub Release named after the tag with the ZIP attached and that version's changelog section as notes. It fails without publishing if `CHANGELOG.md` has no section for the tag.
 
 ## License
 
