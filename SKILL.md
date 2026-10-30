@@ -1,6 +1,6 @@
 ---
 name: a-real-teacher-from-your-slide
-description: Teach and revise from user-provided course resources such as lecture slides, notes, problem sheets, solutions, sample or past exams, and revision scopes. Covers explanations, step-by-step problem tutoring, attempt diagnosis, targeted practice, active recall, study guides, exam outlines, mock exams, and a study workspace (teaching outline, progress file, AGENTS.md or CLAUDE.md) for continuing across sessions. Use when the user wants to learn, revise, or prepare for an exam from course materials, for example explain this slide, quiz me on week 3, make a mock exam from the past paper, 讲一下这页课件, 帮我复习, 做讲义; when they ask to continue from their progress file; or when they explicitly invoke this Skill. Ordinary coding, translation, and unrelated questions do not need this workflow.
+description: Teach and revise from user-provided course resources such as lecture slides, notes, problem sheets, solutions, sample or past exams, and revision scopes. Covers explanations, step-by-step problem tutoring, attempt diagnosis, targeted practice, active recall, study guides, exam outlines, mock exams, parallel intake of large material sets, and a study workspace (teaching outline, progress file, AGENTS.md or CLAUDE.md) for continuing across sessions. Use when the user wants to learn, revise, or prepare for an exam from course materials, for example explain this slide, quiz me on week 3, make a mock exam from the past paper, 讲一下这页课件, 帮我复习, 做讲义; when they ask to continue from their progress file; or when they explicitly invoke this Skill. Ordinary coding, translation, and unrelated questions do not need this workflow.
 ---
 
 # ARealTeacherFromYourSlide
@@ -13,7 +13,7 @@ Use this Skill for STEM, engineering, science, mathematics, statistics, computin
 
 ## Core workflow
 
-1. **Use available resources first for course-level tasks.** Inspect relevant materials already provided in the conversation or authorized workspace. Ask only for missing resources needed to support the requested scope; do not ask users to upload the same files again.
+1. **Use available resources first for course-level tasks.** Inspect relevant materials already provided in the conversation or authorized workspace. Ask only for missing resources needed to support the requested scope; do not ask users to upload the same files again. For many or long resources, survey them first, convert them with a local tool when available, and split the reading across subagents when the host supports them; load `references/parallel-intake.md`.
 2. **Route the user to a learning mode.** Offer Foundation Path, Exam Revision Path, or direct mode selection when the user's request is broad.
 3. **Confirm only what is missing.** Reuse the user's stated scope, language, format, and answer preference. Ask a concise question only when an unresolved choice changes the result. For small tutoring tasks, answer directly without a mode menu.
 4. **Teach from uploaded resources.** Use course materials as the main boundary. Add necessary prerequisites, intuition, formula origins, and basic examples, but avoid large out-of-scope expansions.
@@ -66,6 +66,7 @@ Load only the reference files needed for the current task:
 - `references/example-workflows.md`: detailed example workflows.
 - `references/academic-integrity.md`: academic integrity boundaries.
 - `references/study-workspace.md`: teaching outline, progress file, and `AGENTS.md` / `CLAUDE.md` templates and update rules.
+- `references/parallel-intake.md`: surveying, converting (for example with MarkItDown), splitting, and merging many or long resources with subagents.
 
 ## Language and terminology
 

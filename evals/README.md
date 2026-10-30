@@ -2,7 +2,7 @@
 
 These are small, synthetic learning tasks for checking Skill changes. They contain no university course files, student submissions, or personal data. The repository's MIT license applies to the fixtures.
 
-The cases cover local-step teaching, explicit answer preferences, conflicting source evidence, attempt diagnosis, one-question recall, incomplete scans, mock-exam marks, unsupported exam predictions, and creating or resuming a study workspace. They are a starting point for regression evaluation, not a benchmark of learning outcomes or evidence of adoption.
+The cases cover local-step teaching, explicit answer preferences, conflicting source evidence, attempt diagnosis, one-question recall, incomplete scans, mock-exam marks, unsupported exam predictions, creating or resuming a study workspace, and planning or converting large material sets. They are a starting point for regression evaluation, not a benchmark of learning outcomes or evidence of adoption.
 
 ## Run a case
 

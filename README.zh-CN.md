@@ -141,6 +141,16 @@ PDF 应该像正式教材或讲义，而不是聊天记录导出。数学公式�
 
 只有在你要求或同意后才会创建这些文件，不会覆盖已有文件；知识点状态只会根据你的作答、抽背或测验结果更新。你也可以随时自己修改这些文件。
 
+## 大量课程资料
+
+一门课的文件很多或很长时，这个 Skill 会先快速摸底（文件名、页数、目录、前一两页），并保留每个文件自己的组织方式，不管它是按周、按 lecture、按章节、按主题，还是没有结构。然后：
+
+- 如果装了 [MarkItDown](https://github.com/microsoft/markitdown) 这类本地工具，就用它把文件转成 Markdown，存进 `materials/` 并建索引。以后的对话直接读文字，不用每次重新解析 PDF；
+- 当前环境支持子 agent 时，把阅读任务分给多个子 agent（环境允许时用便宜一些的模型），再把它们提取的知识点合并成教学大纲；
+- 只有工具处理不了的内容，比如扫描页、乱码公式和重要的图表，才在讲到对应模块时由模型转写。
+
+运行子 agent 或转换工具前会先问你一句，也不会未经允许安装软件。MarkItDown 转 PPTX 会保留幻灯片编号，但转 PDF 不保留页码，公式也需要对照原文件核对，所以 Skill 会补上页码标记，并标出没有文字层的页面。模拟卷还可以交给一个子 agent 独立解一遍，用来发现答案错误。
+
 ## 示例指令
 
 ### 学习工作区
@@ -245,6 +255,7 @@ real-teacher-from-your-slide/
 │   ├── artifact-quality.md
 │   ├── source-grounding.md
 │   ├── study-workspace.md
+│   ├── parallel-intake.md
 │   ├── example-workflows.md
 │   └── academic-integrity.md
 ├── evals/

@@ -141,6 +141,16 @@ When the host can write files, the Skill can keep your learning in your own cour
 
 The Skill creates these files only when you ask or agree, does not overwrite existing files, and changes a knowledge point's status only after your attempts, answers, or results. You can edit the files yourself at any time.
 
+## Large Material Sets
+
+When a course has many or long files, the Skill first surveys them (filenames, page counts, tables of contents, first pages) and keeps each file's own structure, whether it is organized by week, lecture, chapter, topic, or not at all. It then:
+
+- converts files to Markdown with a local tool such as [MarkItDown](https://github.com/microsoft/markitdown) when one is installed, saving them in `materials/` with an index, so later sessions read text instead of re-parsing PDFs;
+- splits the reading across subagents when the host supports them, using a cheaper model for reading if the host allows, and merges their knowledge points into the teaching outline;
+- transcribes only what the tool cannot handle, such as scanned pages, garbled formulas, and important diagrams, when that module is taught.
+
+It asks once before running subagents or a conversion tool and never installs software without your permission. MarkItDown keeps slide numbers for PPTX but not page numbers for PDF, and formulas need checking against the original, so the Skill adds page markers and flags pages without a text layer. Mock exams can also be solved independently by a subagent to catch answer errors.
+
 ## Example Prompts
 
 ### Study Workspace
@@ -245,6 +255,7 @@ real-teacher-from-your-slide/
 │   ├── artifact-quality.md
 │   ├── source-grounding.md
 │   ├── study-workspace.md
+│   ├── parallel-intake.md
 │   ├── example-workflows.md
 │   └── academic-integrity.md
 ├── evals/
