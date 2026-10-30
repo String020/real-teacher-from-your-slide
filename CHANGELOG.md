@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Added a study workspace: `teaching-outline.md`, `progress.md`, and `AGENTS.md` / `CLAUDE.md` templates with evidence-based update rules, so agents can resume learning across conversations.
+
 ## v0.1.0
 
 - Initial public release.

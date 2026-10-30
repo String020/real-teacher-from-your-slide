@@ -79,5 +79,26 @@
       "Does not invent frequency statistics or describe generated practice as predicted exam content.",
       "Provides a useful study recommendation grounded in reversible operations and substitution checks."
     ]
+  },
+  {
+    "id": "workspace-create-files",
+    "prompt": "Using these notes, set up a study workspace in my empty course folder: a teaching outline, a progress file, and AGENTS.md so another agent can continue later. Use English. You may write the files.",
+    "resources": ["fixtures/algebra-notes.md"],
+    "checks": [
+      "Creates teaching-outline.md, progress.md, and AGENTS.md, plus CLAUDE.md importing AGENTS.md or an explanation of why it was omitted.",
+      "Outline knowledge points have stable IDs and cite algebra-notes.md Section 1 or Section 2, without exam priority.",
+      "Progress marks every knowledge point not started and records no invented attempts or mastery.",
+      "AGENTS.md tells agents to read both files at session start and to change statuses only after learner evidence."
+    ]
+  },
+  {
+    "id": "workspace-resume",
+    "prompt": "These are the files in my study folder. Continue from last time.",
+    "resources": ["fixtures/algebra-notes.md", "fixtures/workspace-outline.md", "fixtures/workspace-progress.md"],
+    "checks": [
+      "Summarizes the current position briefly, including that M1.1 needs review, without showing the full mode menu.",
+      "Proposes or starts the recorded next step on M1.2, using the recorded English chat preference.",
+      "Does not mark M1.2 or M1.1 as mastered or otherwise change a status before the learner attempts something."
+    ]
   }
 ]

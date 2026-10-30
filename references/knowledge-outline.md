@@ -34,6 +34,10 @@ Identify modules that deserve textbook-style guides and modules that may be bett
 ## 7. Missing-Material Warnings
 State what can and cannot be determined from the current resources.
 
+## Saving as a teaching outline
+
+If the user keeps a study workspace, save the knowledge points as `teaching-outline.md` with stable IDs, following `references/study-workspace.md`.
+
 ## Boundaries
 
 Do not assign high / medium / low exam priority in a Knowledge Outline. If exam relevance is requested, switch to Exam Outline or ask whether the user wants that mode.
