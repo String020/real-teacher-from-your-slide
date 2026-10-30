@@ -28,9 +28,13 @@ GitHub 仓库名是 `real-teacher-from-your-slide`。Skill package / frontmatter
 
 这个仓库采用平台无关设计。你可以在任何能够读取 Skill-style instruction bundle 或结构化 prompt workflow 的环境中使用它。
 
+### 下载 Skill 安装包
+
+从 v0.2.0 开始，每个版本都会在 [最新 GitHub Release](https://github.com/String020/real-teacher-from-your-slide/releases/latest) 附上校验过的 `a-real-teacher-from-your-slide.zip`。它和本地生成的文件相同，下载后可以直接看下面的安装步骤。
+
 ### 生成 Skill 安装包
 
-安装 Git 和 Python 3.10 或更新版本后，在终端运行以下命令（PowerShell 或 Bash 均可）：
+如果想自己生成 ZIP，安装 Git 和 Python 3.10 或更新版本后，在终端运行以下命令（PowerShell 或 Bash 均可）：
 
 ```sh
 git clone https://github.com/String020/real-teacher-from-your-slide.git
@@ -55,7 +59,7 @@ python scripts/package_skill.py
 先用中文讲一个具体例子，保留 English technical terms，再问我一道检查题。
 ```
 
-更新时，重新生成安装包，保留个人修改后再替换已安装的 Skill 文件夹。卸载时，只删除这个 Skill 文件夹。其他支持 Skill 的环境也可以读取这套指令，但安装方式和文件生成能力可能不同。这个 ZIP 是本地 Skill 包，不是插件市场的 plugin。
+更新时，重新下载或生成安装包，保留个人修改后再替换已安装的 Skill 文件夹。卸载时，只删除这个 Skill 文件夹。其他支持 Skill 的环境也可以读取这套指令，但安装方式和文件生成能力可能不同。这个 ZIP 是本地 Skill 包，不是插件市场的 plugin。
 
 ### 检查修改
 
@@ -65,7 +69,7 @@ python -m unittest discover -s tests -v
 python scripts/package_skill.py
 ```
 
-验证器检查 manifest、运行文件、界面元数据结构和参考文件路径。测试还检查解压后的可用性、本地文件排除、错误输入和可重复打包。它们不衡量教学质量，也不证明所有宿主环境兼容。GitHub Actions 会在 Windows 和 Linux 上运行这些检查，并提供 ZIP 工作流产物；不会自动发布 release。
+验证器检查 manifest、运行文件、界面元数据结构和参考文件路径。测试还检查解压后的可用性、本地文件排除、错误输入和可重复打包。它们不衡量教学质量，也不证明所有宿主环境兼容。GitHub Actions 会在 Windows 和 Linux 上运行这些检查，并提供 ZIP 工作流产物。只有维护者推送版本 tag 时才会发布 release，见 [发布版本](#发布版本)。
 
 如果当前环境不能直接生成 PDF、PPT 或其他文件，可以让 AI 先输出干净的 Markdown 或可用于生成文件的目录草案。
 
@@ -93,7 +97,7 @@ python scripts/package_skill.py
 
 推荐流程：
 
-`知识大纲 -> 教材式基础讲义 -> 单题教学 -> 基础练习 -> 考点大纲 -> 应试复习包 -> 解法批改 -> 模拟考试 -> 主动回忆 -> 考前压缩`
+`知识大纲 -> 教材式基础讲义 -> 单题教学 -> 练习题生成（基础练习） -> 考点大纲 -> 应试复习包 -> 解法批改 -> 模拟考试 -> 主动回忆 -> 考前压缩`
 
 ### 考试复习路径
 
@@ -214,30 +218,60 @@ real-teacher-from-your-slide/
 ├── README.zh-CN.md
 ├── LICENSE
 ├── CHANGELOG.md
+├── CONTRIBUTING.md
 ├── .gitignore
 ├── SKILL.md
+├── requirements-dev.txt
+├── .github/
+│   ├── ISSUE_TEMPLATE/learning-feedback.md
+│   └── workflows/
+│       ├── validate.yml
+│       └── release.yml
 ├── agents/
 │   └── openai.yaml
-└── references/
-    ├── mode-router.md
-    ├── material-intake.md
-    ├── knowledge-outline.md
-    ├── exam-outline.md
-    ├── foundation-guide.md
-    ├── exam-strategy-pack.md
-    ├── problem-tutor.md
-    ├── attempt-diagnosis.md
-    ├── practice-generator.md
-    ├── mock-exam.md
-    ├── active-recall.md
-    ├── exam-compression.md
-    ├── artifact-quality.md
-    ├── source-grounding.md
-    ├── example-workflows.md
-    └── academic-integrity.md
+├── references/
+│   ├── mode-router.md
+│   ├── material-intake.md
+│   ├── knowledge-outline.md
+│   ├── exam-outline.md
+│   ├── foundation-guide.md
+│   ├── exam-strategy-pack.md
+│   ├── problem-tutor.md
+│   ├── attempt-diagnosis.md
+│   ├── practice-generator.md
+│   ├── mock-exam.md
+│   ├── active-recall.md
+│   ├── exam-compression.md
+│   ├── artifact-quality.md
+│   ├── source-grounding.md
+│   ├── study-workspace.md
+│   ├── example-workflows.md
+│   └── academic-integrity.md
+├── evals/
+│   ├── README.md
+│   ├── cases.json
+│   └── fixtures/
+├── scripts/
+│   ├── validate_skill.py
+│   ├── package_skill.py
+│   └── eval_case.py
+└── tests/
+    └── test_package_skill.py
 ```
 
 `SKILL.md` 是 Skill 入口文件，具体模式规则放在 `references/` 中，方便后续独立修改。
+
+### 发布版本
+
+1. 在 `CHANGELOG.md` 中把这次发布的条目放到 `## vX.Y.Z` 标题下，并把这次修改合并到 `main`。
+2. 给合并后的提交打 tag 并推送：
+
+   ```sh
+   git tag v0.2.0
+   git push origin v0.2.0
+   ```
+
+3. 发布工作流会先校验和测试安装包，然后发布一个以 tag 命名的 GitHub Release，附上 ZIP，并用该版本的 changelog 小节作为说明。如果 `CHANGELOG.md` 里没有这个 tag 对应的小节，工作流会失败，不会发布。
 
 ## 许可证
 
