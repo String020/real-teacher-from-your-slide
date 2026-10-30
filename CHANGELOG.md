@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v0.3.0
 
 - Added parallel material intake for many or long resources: a quick survey that keeps each file's own structure, conversion with a local tool such as MarkItDown into `materials/` with an index, subagent reading tasks with a self-contained brief, a merge step that assigns knowledge point IDs, and on-demand transcription of scanned pages, formulas, and diagrams.
 - Mock exams, and practice when verified answers are requested, can be solved independently by a subagent before delivery.
