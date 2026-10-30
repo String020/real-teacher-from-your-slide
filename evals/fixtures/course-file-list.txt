@@ -1,0 +1,9 @@
+Course folder listing (synthetic)
+
+syllabus.pdf, 2 pages. Page 1: "Topics by lecture: L1-L4 linear equations, L5-L8 inequalities, L9-L12 functions."
+lecture-01.pptx ... lecture-12.pptx, 12 files, 25-40 slides each. Slide 1 of each: "Lecture N" and a topic title.
+textbook.pdf, 180 pages, bookmarks: Chapter 1 Equations (p. 1-60), Chapter 2 Inequalities (p. 61-120), Chapter 3 Functions (p. 121-180).
+scan001.pdf, 14 pages, no meaningful filename. Page 1 reads: "Tutorial 4 worked solutions". Pages 6-9 contain no text layer.
+past-exam-2025.pdf, 9 pages, six questions, no topic labels.
+
+This is a synthetic file listing created for the evaluation suite, under the repository's MIT license.

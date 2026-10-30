@@ -33,6 +33,10 @@ Say what the resources can support, for example:
 
 Do not produce a long resource inventory table by default. Produce one only when it helps or the user asks.
 
+## Many or long resources
+
+When a course-level task depends on more than about 3 files or 50 pages, survey the materials before reading them in full, convert them with a local tool when one is available, and split the reading across subagents when the host supports them. Load `references/parallel-intake.md`.
+
 ## Missing resources
 
 If the user wants a course-level output and no relevant resources are available, ask for the missing materials. Do not imply that unavailable files were inspected.

@@ -20,6 +20,7 @@ Create these at the root of the folder the user names, or the authorized folder 
 | `progress.md` | Status of each knowledge point, evidence, weak points, session log, and next step | Agent, after learning evidence; the user may edit it |
 | `AGENTS.md` | Instructions that tell agents how to read and maintain the two files | Agent once; the user owns later changes |
 | `CLAUDE.md` | A one-line import of `AGENTS.md` for hosts that read `CLAUDE.md` | Agent once |
+| `materials/` | Converted Markdown of the course files and `materials/index.md`, created only when resources are converted | Agent; see `references/parallel-intake.md` |
 
 Create both `AGENTS.md` and `CLAUDE.md` by default so the folder works in hosts that read either file. If the user chooses only one, create that one and put the full instructions in it.
 
@@ -31,7 +32,7 @@ Before writing, check whether each file exists:
 ## Creation workflow
 
 1. Inspect the available course resources and agree on the course scope, language style, and folder, reusing choices already given.
-2. Draft the knowledge points with the rules in `references/knowledge-outline.md`, at the granularity of one teachable idea, method, or definition per point. For a large course, show the module list first and fill modules in after confirmation.
+2. Draft the knowledge points with the rules in `references/knowledge-outline.md`, at the granularity of one teachable idea, method, or definition per point. For a large course, show the module list first and fill modules in after confirmation. For many or long resources, survey, convert, and split them with `references/parallel-intake.md`.
 3. Write `teaching-outline.md`, then `progress.md` with every point set to `not started`, then the agent instruction files.
 4. Report the files created or changed in one or two lines. Do not paste their full contents into chat unless asked.
 
@@ -139,6 +140,7 @@ This folder is a study workspace for <course or module>. Teach from the course m
 - Teach knowledge points in the order and scope of `teaching-outline.md`. Check prerequisites marked `needs review` or `not started` before relying on them.
 - Use the IDs from `teaching-outline.md` when referring to knowledge points.
 - For review, recall, or practice without a named topic, start from points marked `needs review` and the recorded weak points, then `learning` points practised longest ago.
+- If `materials/index.md` exists, read the converted files in `materials/` before reopening the originals. Check formulas, diagrams, and pages marked for visual checking against the original file.
 
 ## Updating `progress.md`
 

@@ -1,0 +1,12 @@
+MarkItDown output for lecture-03.pdf (3 pages). Pages are separated by form feed characters.
+
+Lecture 3: Linear equations
+Apply the same reversible operation to both sides.
+Example: 3x + 6 = 12 implies x = 2
+
+Lecture 3: Checking answers
+Substitute into the original equation.
+Example: check x = 2 in 3x + 6 = 12.
+
+
+This is synthetic converter output created for the evaluation suite, under the repository's MIT license.

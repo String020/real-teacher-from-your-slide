@@ -42,3 +42,5 @@ If `teaching-outline.md` exists, map each question to the knowledge point IDs it
 ## Delivery checks
 
 Before delivery, solve each generated question, check that the supplied information is sufficient, and verify the marking guide agrees with the solution. Add question and section marks and confirm they match the requested total. Keep answers separate or withheld according to the user's selected format. Report any unverified checks instead of claiming a complete review.
+
+If the host can start subagents, give one only the questions and the permitted resources, without solutions or the marking guide, and have it solve the paper independently. Compare its answers with yours and recheck every disagreement before delivery.

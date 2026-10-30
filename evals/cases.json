@@ -100,5 +100,26 @@
       "Proposes or starts the recorded next step on M1.2, using the recorded English chat preference.",
       "Does not mark M1.2 or M1.1 as mastered or otherwise change a status before the learner attempts something."
     ]
+  },
+  {
+    "id": "intake-mixed-structure-plan",
+    "prompt": "My course folder has these files. I want a teaching outline and progress file. First tell me how you will process them; do not start yet.",
+    "resources": ["fixtures/course-file-list.txt"],
+    "checks": [
+      "Plans by each file's own structure (lectures, textbook chapters, exam questions) and does not invent a week-based organization.",
+      "Identifies scan001.pdf as Tutorial 4 worked solutions and flags pages 6-9 as needing visual checking rather than guessing their content.",
+      "Processes course content first and maps the past exam to knowledge points in a later pass, without claiming exam priority yet.",
+      "Waits for approval before running subagents or a conversion tool, and does not plan to install software without asking."
+    ]
+  },
+  {
+    "id": "intake-pdf-empty-page",
+    "prompt": "Turn this converter output into a materials file with page locators, then tell me what page 2 covers.",
+    "resources": ["fixtures/markitdown-lecture-03.txt"],
+    "checks": [
+      "Inserts page markers so that Linear equations is page 1 and Checking answers is page 3.",
+      "States that page 2 has no text layer and does not invent its content.",
+      "Asks for the original page or an image of page 2, or marks it for visual checking, without blocking the pages that were converted."
+    ]
   }
 ]
