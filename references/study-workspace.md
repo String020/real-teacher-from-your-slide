@@ -107,6 +107,20 @@ Progress rules:
 - Update `Next step` at the end of each session so the next agent knows where to start.
 - Tell the user in one line what changed in `progress.md`. If they disagree, follow their correction.
 
+## Updates by mode
+
+Each mode file describes its own workspace step. In short:
+
+| Mode | Reads | Writes |
+|---|---|---|
+| Knowledge Outline | resources | `teaching-outline.md` points and IDs |
+| Exam Outline | `teaching-outline.md`, exam-like evidence | `Exam relevance` column, only with evidence |
+| Attempt Diagnosis | point ID of the attempt | status, first key error under weak points |
+| Active Recall | statuses and `Last practiced` to choose questions | evidence, `Last practiced`, status after the round |
+| Practice Generator | `needs review` points and weak points to choose topics | nothing until the user attempts the questions |
+| Mock Exam | outline IDs for the question mapping | per-ID results and statuses after marking |
+| Any mode, end of session | `progress.md` | session log entry and `Next step` |
+
 ## `AGENTS.md` template
 
 ```markdown
@@ -124,6 +138,7 @@ This folder is a study workspace for <course or module>. Teach from the course m
 
 - Teach knowledge points in the order and scope of `teaching-outline.md`. Check prerequisites marked `needs review` or `not started` before relying on them.
 - Use the IDs from `teaching-outline.md` when referring to knowledge points.
+- For review, recall, or practice without a named topic, start from points marked `needs review` and the recorded weak points, then `learning` points practised longest ago.
 
 ## Updating `progress.md`
 

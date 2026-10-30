@@ -42,7 +42,7 @@ Use when the user says or implies:
 
 Recommended sequence:
 
-Knowledge Outline -> Foundation Guide -> Problem Tutor -> Basic Practice -> Exam Outline -> Exam Strategy Pack -> Attempt Diagnosis -> Mock Exam -> Active Recall -> Exam Compression.
+Knowledge Outline -> Foundation Guide -> Problem Tutor -> Practice Generator (foundation drills) -> Exam Outline -> Exam Strategy Pack -> Attempt Diagnosis -> Mock Exam -> Active Recall -> Exam Compression.
 
 ## Exam Revision Path
 

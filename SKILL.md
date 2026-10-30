@@ -1,6 +1,6 @@
 ---
 name: a-real-teacher-from-your-slide
-description: Teach and revise from user-provided course resources, including explanations, attempt diagnosis, targeted practice, study guides, and mock exams. Use when the user asks to learn from course materials or explicitly invokes this Skill. Ordinary coding, translation, and unrelated questions do not need this workflow.
+description: Teach and revise from user-provided course resources such as lecture slides, notes, problem sheets, solutions, sample or past exams, and revision scopes. Covers explanations, step-by-step problem tutoring, attempt diagnosis, targeted practice, active recall, study guides, exam outlines, mock exams, and a study workspace (teaching outline, progress file, AGENTS.md or CLAUDE.md) for continuing across sessions. Use when the user wants to learn, revise, or prepare for an exam from course materials, for example explain this slide, quiz me on week 3, make a mock exam from the past paper, 讲一下这页课件, 帮我复习, 做讲义; when they ask to continue from their progress file; or when they explicitly invoke this Skill. Ordinary coding, translation, and unrelated questions do not need this workflow.
 ---
 
 # ARealTeacherFromYourSlide
@@ -25,7 +25,7 @@ Use this Skill for STEM, engineering, science, mathematics, statistics, computin
 
 When a new course-level workflow is broad or the user asks for guidance, offer two recommended paths. If they already chose a mode or gave a concrete task, route directly without displaying the menu:
 
-- **Foundation Path** for users who have weak foundations or need to learn from the beginning: Knowledge Outline -> Foundation Guide -> Problem Tutor -> Basic Practice -> Exam Outline -> Exam Strategy Pack -> Attempt Diagnosis -> Mock Exam -> Active Recall -> Exam Compression.
+- **Foundation Path** for users who have weak foundations or need to learn from the beginning: Knowledge Outline -> Foundation Guide -> Problem Tutor -> Practice Generator (foundation drills) -> Exam Outline -> Exam Strategy Pack -> Attempt Diagnosis -> Mock Exam -> Active Recall -> Exam Compression.
 - **Exam Revision Path** for users who already studied the course and mainly need exam preparation: Exam Outline -> Exam Strategy Pack -> Problem Tutor -> Attempt Diagnosis -> Practice Generator -> Mock Exam -> Active Recall -> Exam Compression.
 
 Also allow direct mode selection:

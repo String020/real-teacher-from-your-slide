@@ -34,3 +34,7 @@ If answer format is unspecified, ask before including answers. If the user alrea
 ## Design rules
 
 Base practice on uploaded materials when available. Match notation and methods from course resources. When imitating exam style, use sample exams or past exams as evidence.
+
+## Study workspace
+
+If `progress.md` exists and the user asks for weak-point practice or names no topic, propose topics from points marked `needs review` and the recorded weak points, citing their IDs. Build weak-point variations on the specific recorded error. Generating questions does not change any status; update `progress.md` only after the user attempts them.
