@@ -35,4 +35,10 @@ For a mock exam, include:
 
 Do not claim that a mock exam reflects true exam weighting unless sample exams, past exams, marking guides, or instructor scope support that claim.
 
+## Study workspace
+
+If `teaching-outline.md` exists, map each question to the knowledge point IDs it tests. Put the mapping in the marking guide or solutions, not beside the questions, so it does not hint at the method. When `progress.md` exists and the user's attempts have been marked, record the result per ID (for example `Mock 2026-10-30 Q3: 3/5`), update statuses by the progress rules in `references/study-workspace.md`, and add a session log entry. Do not change progress for questions the user did not attempt.
+
+## Delivery checks
+
 Before delivery, solve each generated question, check that the supplied information is sufficient, and verify the marking guide agrees with the solution. Add question and section marks and confirm they match the requested total. Keep answers separate or withheld according to the user's selected format. Report any unverified checks instead of claiming a complete review.

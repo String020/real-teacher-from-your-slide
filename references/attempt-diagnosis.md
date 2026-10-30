@@ -27,6 +27,10 @@ Do not overwrite the user's work with a standard solution before diagnosing it.
 - concept confusion
 - method too advanced or unsuitable for the exam
 
+## Study workspace
+
+If `progress.md` exists, record the first key error under `Weak points and misconceptions` with the knowledge point ID and error category, then update that point's status by the progress rules in `references/study-workspace.md`. A correct unaided attempt counts toward `mastered`; an error on a `mastered` point returns it to `needs review`. This short record is separate from the optional error log below.
+
 ## Error log rule
 
 Do not automatically generate a full error log. Generate one only when the user asks for an error log, mistake table, wrong-answer notebook, or error classification summary.
