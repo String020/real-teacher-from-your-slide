@@ -18,17 +18,9 @@ jobs:
       - run: python -m pip install -r requirements-dev.txt
       - run: python scripts/validate_skill.py
       - run: python -m unittest discover -s tests -v
+      - run: python scripts/eval_case.py --check
       - run: python scripts/package_skill.py
-      - name: Extract release notes from CHANGELOG.md
-        shell: python
-        run: |
-          import os, re, sys
-          tag = os.environ["GITHUB_REF_NAME"]
-          text = open("CHANGELOG.md", encoding="utf-8").read()
-          match = re.search(rf"^## {re.escape(tag)}\n(.*?)(?=^## |\Z)", text, re.M | re.S)
-          if not match or not match.group(1).strip():
-              sys.exit(f"CHANGELOG.md has no '## {tag}' section")
-          open("release-notes.md", "w", encoding="utf-8").write(match.group(1).strip() + "\n")
+      - run: python scripts/release_notes.py "$GITHUB_REF_NAME" --output release-notes.md
       - name: Publish GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}

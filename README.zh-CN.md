@@ -88,10 +88,11 @@ markitdown --version
 ```sh
 python scripts/validate_skill.py
 python -m unittest discover -s tests -v
+python scripts/eval_case.py --check
 python scripts/package_skill.py
 ```
 
-验证器检查 manifest、运行文件、界面元数据结构和参考文件路径。测试还检查解压后的可用性、本地文件排除、错误输入和可重复打包。它们不衡量教学质量，也不证明所有宿主环境兼容。GitHub Actions 会在 Windows 和 Linux 上运行这些检查，并提供 ZIP 工作流产物。只有维护者推送版本 tag 时才会发布 release，见 [发布版本](#发布版本)。
+验证器检查 manifest、运行文件、界面元数据结构和参考文件路径。测试还检查解压后的可用性、本地文件排除、错误输入和可重复打包。内容一致性测试会检查：学习路径只使用已定义的模式且各文件一致；每个参考文件都登记在 `SKILL.md` 和两份 README 的结构图里；进度状态只用四个规定的值；`AGENTS.md` 模板离开 Skill 文件夹也能用；相对链接和锚点都能跳转；中英文 README 结构相同；评测素材都标明为合成内容且被用例使用；changelog 顺序正确并能生成发布说明。这些检查都不衡量教学质量，也不证明所有宿主环境兼容。GitHub Actions 会在 Windows 和 Linux 上运行这些检查，并提供 ZIP 工作流产物。只有维护者推送版本 tag 时才会发布 release，见 [发布版本](#发布版本)。
 
 如果当前环境不能直接生成 PDF、PPT 或其他文件，可以让 AI 先输出干净的 Markdown 或可用于生成文件的目录草案。
 
@@ -287,9 +288,12 @@ real-teacher-from-your-slide/
 ├── scripts/
 │   ├── validate_skill.py
 │   ├── package_skill.py
-│   └── eval_case.py
+│   ├── eval_case.py
+│   └── release_notes.py
 └── tests/
-    └── test_package_skill.py
+    ├── test_package_skill.py
+    ├── test_content_consistency.py
+    └── test_release_notes.py
 ```
 
 `SKILL.md` 是 Skill 入口文件，具体模式规则放在 `references/` 中，方便后续独立修改。

@@ -88,10 +88,11 @@ If `markitdown` is not on your `PATH`, tell the assistant where it is installed.
 ```sh
 python scripts/validate_skill.py
 python -m unittest discover -s tests -v
+python scripts/eval_case.py --check
 python scripts/package_skill.py
 ```
 
-The validator checks the manifest, runtime files, UI metadata structure, and reference targets. The tests also exercise extraction, excluded local files, broken inputs, and reproducible packaging. They do not measure teaching quality or prove host compatibility. GitHub Actions runs these checks on Windows and Linux and provides the ZIP as a workflow artifact. Releases are published only when a maintainer pushes a version tag; see [Releasing](#releasing).
+The validator checks the manifest, runtime files, UI metadata structure, and reference targets. The tests also exercise extraction, excluded local files, broken inputs, and reproducible packaging. Content consistency tests check that learning paths use only defined modes and agree across files, every reference file is registered in `SKILL.md` and both README trees, progress statuses use the four defined values, the `AGENTS.md` template works outside the Skill folder, relative links and anchors resolve, both READMEs have the same structure, fixtures are marked synthetic and used, and the changelog is ordered and produces release notes. None of these checks measure teaching quality or prove host compatibility. GitHub Actions runs these checks on Windows and Linux and provides the ZIP as a workflow artifact. Releases are published only when a maintainer pushes a version tag; see [Releasing](#releasing).
 
 If your environment cannot generate PDFs, slides, or other files directly, ask the assistant to produce clean Markdown or a generation-ready outline instead.
 
@@ -287,9 +288,12 @@ real-teacher-from-your-slide/
 ├── scripts/
 │   ├── validate_skill.py
 │   ├── package_skill.py
-│   └── eval_case.py
+│   ├── eval_case.py
+│   └── release_notes.py
 └── tests/
-    └── test_package_skill.py
+    ├── test_package_skill.py
+    ├── test_content_consistency.py
+    └── test_release_notes.py
 ```
 
 `SKILL.md` is the main entrypoint. Detailed behavior rules live in `references/` so each mode can be updated independently.
